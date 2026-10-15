@@ -4,172 +4,310 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Descubra qual apartamento combina com sua próxima fase de vida. Quiz gratuito de Ticiana, Consultora Imobiliária em Fortaleza.">
+  <meta name="description" content="Descubra qual apartamento combina com sua próxima fase de vida. Diagnóstico imobiliário gratuito com Ticiana, Consultora Imobiliária em Fortaleza.">
+  <meta name="theme-color" content="#193b3a">
   <title>Seu Próximo Apartamento | Ticiana</title>
+
   <style>
     :root {
       --verde: #193b3a;
-      --verde-claro: #28665c;
-      --areia: #d9bb8d;
-      --fundo: #f7f6f2;
-      --texto: #263533;
+      --verde2: #28665c;
+      --areia: #dec5a0;
+      --fundo: #f6f6f2;
+      --texto: #243633;
+      --cinza: #66746e;
+      --borda: #dce4df;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      background: var(--fundo);
-      color: var(--texto);
       font-family: Arial, Helvetica, sans-serif;
+      color: var(--texto);
+      background: var(--fundo);
       line-height: 1.55;
     }
+
     .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 20px 16px 50px;
+      max-width: 780px;
+      margin: auto;
+      padding: 18px 14px 40px;
     }
+
     header {
       background: var(--verde);
       color: white;
-      padding: 42px 26px;
-      border-radius: 16px 16px 0 0;
+      padding: 40px 30px;
+      border-radius: 18px 18px 0 0;
     }
+
     .marca {
       color: var(--areia);
-      text-transform: uppercase;
       font-size: 12px;
-      letter-spacing: 2px;
       font-weight: bold;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
     }
+
     h1 {
       font-size: clamp(29px, 6vw, 42px);
       line-height: 1.14;
-      margin: 24px 0 18px;
       font-weight: 600;
+      margin: 22px 0 18px;
     }
-    header p { color: #e4eeeb; font-size: 16px; }
-    .detalhes { color: var(--areia); font-size: 13px; margin-top: 22px; }
+
+    header p {
+      font-size: 16px;
+      color: #e3ede8;
+      max-width: 620px;
+    }
+
+    .detalhes {
+      color: var(--areia);
+      font-size: 13px;
+      margin-top: 20px;
+    }
+
     main {
       background: white;
-      border: 1px solid #e7e7e1;
-      padding: 30px 25px;
-      border-radius: 0 0 16px 16px;
+      border: 1px solid var(--borda);
+      border-top: 0;
+      border-radius: 0 0 18px 18px;
+      padding: 30px;
     }
+
+    h2 {
+      font-size: clamp(21px, 4vw, 27px);
+      line-height: 1.3;
+      margin: 14px 0 18px;
+    }
+
+    h3 {
+      font-size: 19px;
+      line-height: 1.35;
+    }
+
+    .pequeno {
+      color: var(--cinza);
+      font-size: 13px;
+    }
+
+    .selo {
+      color: var(--verde2);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
     .progresso {
       height: 6px;
-      background: #e7ecea;
+      background: #e8eeea;
       border-radius: 20px;
       overflow: hidden;
-      margin: 14px 0 26px;
+      margin: 12px 0 25px;
     }
+
     #barra {
-      width: 0;
       height: 100%;
-      background: var(--verde-claro);
-      transition: width .25s;
+      width: 0;
+      background: var(--verde2);
+      transition: width .25s ease;
     }
-    .pequeno { color: #657570; font-size: 13px; }
-    h2 { font-size: 24px; line-height: 1.3; }
+
     .opcao {
-      display: block;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
       width: 100%;
       background: white;
-      border: 1px solid #d7dfda;
-      border-radius: 10px;
+      border: 1px solid var(--borda);
+      border-radius: 11px;
       padding: 15px;
       margin: 10px 0;
       text-align: left;
-      font-size: 15px;
-      cursor: pointer;
       color: var(--texto);
+      cursor: pointer;
+      font-size: 15px;
+      line-height: 1.45;
     }
-    .opcao:hover { border-color: var(--verde-claro); }
+
+    .opcao:hover {
+      border-color: var(--verde2);
+    }
+
     .opcao.ativa {
-      border: 2px solid var(--verde-claro);
+      border: 2px solid var(--verde2);
       background: #edf6f2;
-      font-weight: bold;
     }
+
+    .marcador {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 21px;
+      height: 21px;
+      flex-shrink: 0;
+      border: 1.5px solid #a8b8b0;
+      border-radius: 50%;
+      margin-top: 1px;
+      font-size: 12px;
+    }
+
+    .multipla .marcador {
+      border-radius: 5px;
+    }
+
+    .ativa .marcador {
+      background: var(--verde2);
+      color: white;
+      border-color: var(--verde2);
+    }
+
+    .opcao-texto {
+      flex: 1;
+    }
+
+    .opcao-titulo {
+      display: block;
+      font-weight: 600;
+    }
+
+    .opcao-desc {
+      display: block;
+      color: var(--cinza);
+      font-size: 12px;
+      margin-top: 4px;
+      font-weight: normal;
+    }
+
     .botoes {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       margin-top: 25px;
     }
-    button { font-family: inherit; }
+
     .botao {
-      border: none;
-      background: var(--verde-claro);
+      border: 0;
+      background: var(--verde2);
       color: white;
       padding: 14px 20px;
       border-radius: 9px;
-      cursor: pointer;
       font-size: 15px;
       font-weight: bold;
+      cursor: pointer;
     }
-    .botao:disabled { opacity: .4; cursor: not-allowed; }
+
+    .botao:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
     .secundario {
       background: #edf1ee;
       color: var(--verde);
     }
+
     .caixa {
       background: #f0f5f2;
       padding: 19px;
-      border-radius: 11px;
+      border-radius: 12px;
       margin: 18px 0;
     }
-    .selo {
-      color: var(--verde-claro);
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 1px;
+
+    .caixa p {
+      margin-bottom: 0;
     }
-    label.campo {
+
+    .resumo {
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      padding: 18px;
+      margin: 18px 0;
+    }
+
+    .resumo p {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .campo {
       display: block;
       font-size: 14px;
       font-weight: bold;
-      margin-top: 16px;
+      margin-top: 17px;
     }
-    input[type="text"], input[type="tel"], input[type="email"] {
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"] {
       width: 100%;
+      border: 1px solid #cbd5d0;
+      border-radius: 9px;
       padding: 13px;
       margin-top: 6px;
-      border: 1px solid #cbd5d0;
-      border-radius: 8px;
       font-size: 16px;
+      font-family: inherit;
     }
+
+    input:focus,
+    button:focus-visible {
+      outline: 2px solid var(--verde2);
+      outline-offset: 3px;
+    }
+
     .consentimento {
       display: flex;
-      align-items: flex-start;
       gap: 10px;
-      font-size: 13px;
+      align-items: flex-start;
       margin: 20px 0;
-      color: #475750;
+      font-size: 13px;
+      color: #465750;
+      font-weight: normal;
     }
-    .consentimento input { margin-top: 4px; }
-    .oculto { display: none; }
+
+    .consentimento input {
+      margin-top: 4px;
+    }
+
+    .oculto {
+      display: none;
+    }
+
     footer {
       text-align: center;
-      color: #66746e;
       font-size: 12px;
+      color: var(--cinza);
       padding: 24px 8px;
     }
-    @media(max-width:480px) {
-      header { padding: 30px 22px; }
+
+    @media (max-width: 480px) {
+      header { padding: 31px 22px; }
       main { padding: 24px 18px; }
-      h2 { font-size: 21px; }
+      .opcao { padding: 13px; }
+      .botoes .botao { padding: 13px 15px; }
     }
   </style>
 </head>
-<body>
 
+<body>
 <div class="container">
+
   <header>
     <div class="marca">Ticiana | Consultora Imobiliária</div>
-    <h1>Qual apartamento combina com sua próxima fase de vida?</h1>
+
+    <h1>
+      Qual apartamento combina com sua próxima fase de vida?
+    </h1>
+
     <p>
-      Antes de começar a visitar imóveis, descubra quais
-      características realmente fazem sentido para você,
-      sua rotina e seu patrimônio.
+      Comprar melhor começa por entender o que realmente
+      faz sentido para você. Descubra suas prioridades
+      e receba uma orientação imobiliária personalizada.
     </p>
+
     <div class="detalhes">
       ✓ Gratuito &nbsp; • &nbsp; Cerca de 3 minutos
       &nbsp; • &nbsp; Fortaleza – CE
@@ -177,26 +315,43 @@
   </header>
 
   <main>
+
     <section id="quiz">
-      <div class="pequeno" id="contador">Pergunta 1 de 8</div>
-      <div class="progresso"><div id="barra"></div></div>
-      <div class="selo">SEU DIAGNÓSTICO IMOBILIÁRIO</div>
+      <div class="pequeno" id="contador">
+        Pergunta 1 de 9
+      </div>
+
+      <div class="progresso">
+        <div id="barra"></div>
+      </div>
+
+      <div class="selo">Seu diagnóstico imobiliário</div>
+
       <h2 id="pergunta"></h2>
+
+      <p id="instrucao" class="pequeno"></p>
+
       <div id="opcoes"></div>
 
       <div class="botoes">
-        <button class="botao secundario" id="voltar" type="button">
+        <button class="botao secundario"
+                id="voltar" type="button">
           ← Voltar
         </button>
-        <button class="botao" id="avancar" type="button" disabled>
+
+        <button class="botao"
+                id="avancar" type="button" disabled>
           Continuar →
         </button>
       </div>
     </section>
 
     <section id="resultado" class="oculto">
-      <div class="selo">✓ DIAGNÓSTICO CONCLUÍDO</div>
+
+      <div class="selo">✓ Diagnóstico concluído</div>
+
       <h2 id="perfil"></h2>
+
       <p id="frase"></p>
 
       <div class="caixa">
@@ -209,52 +364,89 @@
         <p id="prioridades"></p>
       </div>
 
-      <h2>Vamos encontrar opções que façam sentido para você?</h2>
+      <div class="caixa">
+        <strong>Um ponto de atenção</strong>
+        <p id="alerta"></p>
+      </div>
+
+      <div class="resumo">
+        <strong>Seu diagnóstico em poucas palavras</strong>
+        <div id="resumo"></div>
+      </div>
+
+      <h2>
+        Vamos transformar esse diagnóstico em uma busca
+        mais inteligente?
+      </h2>
+
       <p>
-        Envie seu diagnóstico para Ticiana e converse
-        sobre uma curadoria personalizada de apartamentos
-        em Fortaleza.
+        Compartilhe seu perfil com Ticiana para conversar
+        sobre uma curadoria de imóveis que realmente
+        façam sentido para você.
       </p>
 
       <form id="formulario">
-        <label class="campo" for="nome">Seu primeiro nome *</label>
+
+        <label class="campo" for="nome">
+          Seu primeiro nome *
+        </label>
+
         <input id="nome" type="text" required
+               autocomplete="given-name"
                placeholder="Como posso chamar você?">
 
-        <label class="campo" for="telefone">Seu WhatsApp (opcional)</label>
+        <label class="campo" for="telefone">
+          Seu WhatsApp (opcional)
+        </label>
+
         <input id="telefone" type="tel"
+               autocomplete="tel"
                placeholder="(85) 99999-9999">
 
-        <label class="campo" for="email">Seu e-mail (opcional)</label>
+        <label class="campo" for="email">
+          Seu e-mail (opcional)
+        </label>
+
         <input id="email" type="email"
+               autocomplete="email"
                placeholder="voce@exemplo.com">
 
         <label class="consentimento">
-          <input id="consentimento" type="checkbox" required>
+          <input id="consentimento"
+                 type="checkbox" required>
+
           <span>
             Autorizo o compartilhamento das informações
-            preenchidas com Ticiana por WhatsApp, para
-            atendimento relacionado à minha busca imobiliária.
-            Entendo que posso solicitar a interrupção do contato.
+            que preenchi com Ticiana, por WhatsApp,
+            para atendimento relacionado à minha busca
+            imobiliária. Sei que posso solicitar
+            a interrupção dos contatos.
           </span>
         </label>
 
-        <button class="botao" type="submit" style="width:100%">
-          Enviar meu perfil para Ticiana →
+        <button class="botao"
+                type="submit"
+                style="width:100%">
+          Enviar meu diagnóstico para Ticiana →
         </button>
+
       </form>
 
       <p class="pequeno">
-        O WhatsApp será aberto com uma mensagem pronta
-        para você revisar e enviar. Nenhum dado é
-        armazenado neste site.
+        O WhatsApp será aberto com uma mensagem pronta.
+        Você poderá revisar e confirmar o envio.
+        Este site não armazena suas respostas.
       </p>
 
-      <button class="botao secundario" id="reiniciar"
-              type="button" style="width:100%;margin-top:15px">
+      <button class="botao secundario"
+              id="reiniciar"
+              type="button"
+              style="width:100%;margin-top:16px">
         Refazer diagnóstico
       </button>
+
     </section>
+
   </main>
 
   <footer>
@@ -262,173 +454,486 @@
     Curadoria e inteligência imobiliária em Fortaleza – CE<br>
     Cazza Imob · Apoio institucional
   </footer>
+
 </div>
 
 <script>
+"use strict";
+
+/*
+  QUIZ IMOBILIÁRIO — TICIANA
+  Versão com 9 perguntas.
+
+  Perguntas 1, 2 e 9:
+  influenciam o perfil principal.
+
+  Perguntas 3 a 8:
+  personalizam a orientação e a qualificação.
+
+  A pergunta 4 permite selecionar até 3 opções.
+*/
+
 const perguntas = [
   {
-    texto: "O que motivou sua busca por um novo apartamento?",
+    texto: "O que está motivando você a buscar um novo imóvel?",
     opcoes: [
-      "Minha família precisa de mais espaço",
-      "Estou iniciando uma nova fase",
-      "Quero mais conforto e praticidade",
-      "Quero investir ou aproveitar uma oportunidade"
+      {
+        titulo: "Minha família cresceu e preciso de mais espaço."
+      },
+      {
+        titulo: "Quero mais conforto, qualidade de vida ou uma localização melhor."
+      },
+      {
+        titulo: "Minha vida mudou e preciso de um imóvel que acompanhe esse novo momento.",
+        descricao: "Ex.: casamento, separação, aposentadoria, mudança profissional ou de rotina."
+      },
+      {
+        titulo: "Quero sair do aluguel e conquistar meu imóvel."
+      },
+      {
+        titulo: "Quero trocar meu imóvel atual por outro mais adequado."
+      },
+      {
+        titulo: "Desejo investir ou aproveitar uma boa oportunidade."
+      }
     ]
   },
   {
-    texto: "O que você mais valoriza em um imóvel?",
+    texto: "O que faria mais diferença na sua qualidade de vida ao escolher um imóvel?",
     opcoes: [
-      "Espaço e planta bem distribuída",
-      "Localização e conveniência",
-      "Segurança e estrutura do condomínio",
-      "Preço coerente e potencial patrimonial"
+      {
+        titulo: "Ambientes amplos e uma planta bem distribuída"
+      },
+      {
+        titulo: "Morar perto dos lugares que fazem parte da minha rotina"
+      },
+      {
+        titulo: "Segurança, privacidade e boa estrutura de condomínio"
+      },
+      {
+        titulo: "Praticidade, conforto e pouca necessidade de manutenção"
+      },
+      {
+        titulo: "Fazer uma compra inteligente, com bom equilíbrio entre preço e benefícios"
+      }
     ]
   },
   {
-    texto: "Que tipo de apartamento você considera?",
+    texto: "Qual situação de imóvel faz mais sentido para você?",
     opcoes: [
-      "Pronto, espaçoso e funcional",
-      "Moderno e prático",
-      "Estou aberta(o) a usados ou lançamentos",
-      "O que oferecer melhor relação entre preço e valor"
+      {
+        titulo: "Pronto para morar, mobiliado ou reformado",
+        descricao: "Para quem deseja se mudar sem grandes intervenções."
+      },
+      {
+        titulo: "Lançamento ou imóvel na planta",
+        descricao: "Para quem pode esperar a conclusão da obra."
+      },
+      {
+        titulo: "Usado, com potencial de reforma",
+        descricao: "Para adaptar os ambientes ao próprio estilo."
+      },
+      {
+        titulo: "Estou aberto(a) a diferentes possibilidades"
+      }
     ]
   },
   {
-    texto: "Quais regiões de Fortaleza mais interessam?",
+    texto: "Quais características você gostaria de encontrar no seu próximo imóvel?",
+    multipla: true,
+    maximo: 3,
     opcoes: [
-      "Cocó ou Guararapes",
-      "Aldeota ou Meireles",
-      "Luciano Cavalcante",
-      "Ainda quero comparar bairros"
+      {
+        titulo: "Mobiliado (porteira fechada)"
+      },
+      {
+        titulo: "Reformado e modernizado"
+      },
+      {
+        titulo: "Acabamento e características de alto padrão"
+      },
+      {
+        titulo: "Compacto, funcional e fácil de manter"
+      },
+      {
+        titulo: "Espaços amplos para a família"
+      },
+      {
+        titulo: "Possibilidade de personalizar ou reformar"
+      }
     ]
   },
   {
-    texto: "Qual faixa de investimento você considera?",
+    texto: "Em quais regiões você gostaria de morar ou investir?",
     opcoes: [
-      "R$ 600 mil a R$ 800 mil",
-      "R$ 800 mil a R$ 1,2 milhão",
-      "R$ 1,2 milhão a R$ 2 milhões",
-      "Ainda estou definindo"
+      { titulo: "Cocó ou Guararapes" },
+      { titulo: "Aldeota ou Meireles" },
+      { titulo: "Luciano Cavalcante" },
+      { titulo: "Outros bairros de Fortaleza" },
+      {
+        titulo: "Ainda não defini e gostaria de orientação"
+      }
     ]
   },
   {
-    texto: "Quando pretende realizar a compra?",
+    texto: "Qual faixa de investimento você considera para a compra?",
     opcoes: [
-      "Nos próximos 3 meses",
-      "Entre 3 e 6 meses",
-      "Entre 6 e 12 meses",
-      "Ainda estou pesquisando"
+      { titulo: "Até R$ 600 mil" },
+      { titulo: "De R$ 600 mil a R$ 800 mil" },
+      {
+        titulo: "Acima de R$ 800 mil até R$ 1,2 milhão"
+      },
+      {
+        titulo: "Acima de R$ 1,2 milhão até R$ 2 milhões"
+      },
+      { titulo: "Acima de R$ 2 milhões" },
+      {
+        titulo: "Ainda estou definindo meu orçamento"
+      }
     ]
   },
   {
-    texto: "Como pretende estruturar a compra?",
+    texto: "Em que momento você pretende comprar?",
     opcoes: [
-      "Recursos próprios",
-      "Financiamento total ou parcial",
-      "Preciso vender outro imóvel primeiro",
-      "Ainda estou avaliando"
+      {
+        titulo: "O quanto antes, se encontrar o imóvel certo"
+      },
+      { titulo: "Nos próximos 3 a 6 meses" },
+      { titulo: "Entre 6 e 12 meses" },
+      { titulo: "Daqui a mais de 1 ano" },
+      {
+        titulo: "Ainda estou conhecendo o mercado"
+      }
     ]
   },
   {
-    texto: "O que mais preocupa você nessa decisão?",
+    texto: "Como você imagina realizar essa compra?",
     opcoes: [
-      "Pagar mais do que o imóvel vale",
-      "Escolher um imóvel inadequado",
-      "Perder tempo com opções irrelevantes",
-      "Liquidez e segurança patrimonial"
+      { titulo: "Com recursos próprios" },
+      { titulo: "Com financiamento imobiliário" },
+      {
+        titulo: "Pretendo vender meu imóvel atual para comprar outro"
+      },
+      {
+        titulo: "Com uma combinação dessas possibilidades"
+      },
+      {
+        titulo: "Ainda preciso avaliar as opções"
+      }
+    ]
+  },
+  {
+    texto: "O que mais preocupa você na hora de escolher um imóvel?",
+    opcoes: [
+      {
+        titulo: "Pagar mais do que o imóvel realmente vale"
+      },
+      {
+        titulo: "Comprar e perceber depois que o imóvel não atende às minhas necessidades"
+      },
+      {
+        titulo: "Perder tempo visitando imóveis que não combinam comigo"
+      },
+      {
+        titulo: "Não conseguir avaliar corretamente localização, custos e potencial de revenda"
+      },
+      {
+        titulo: "Ter dúvidas sobre documentação, financiamento ou segurança da negociação"
+      }
     ]
   }
 ];
+
+/*
+  Os quatro perfis são orientações iniciais,
+  não diagnósticos técnicos ou financeiros.
+*/
 
 const perfis = [
   {
     nome: "Upgrade Familiar",
-    frase: "Sua vida cresceu. Seu imóvel precisa acompanhar.",
-    descricao: "Seu perfil indica que espaço, conforto e segurança são prioridades importantes. Sua busca deve considerar a rotina da família e a funcionalidade do apartamento.",
-    prioridades: "Planta bem distribuída, espaços de convivência, estrutura do condomínio, localização e custos mensais."
+    frase: "Sua vida evoluiu. Seu imóvel precisa acompanhar.",
+    descricao:
+      "Seu momento pede atenção especial ao espaço, " +
+      "à funcionalidade e à rotina de quem vai viver no imóvel. " +
+      "Mais importante do que uma metragem isolada é entender " +
+      "como os ambientes serão usados no dia a dia.",
+    prioridades:
+      "Distribuição da planta, espaços de convivência, " +
+      "segurança, estrutura do condomínio e deslocamentos.",
+    alerta:
+      "Um apartamento maior nem sempre é mais funcional. " +
+      "Avalie a disposição dos cômodos e o custo total " +
+      "de manutenção antes de decidir."
   },
   {
     nome: "Novo Capítulo",
-    frase: "Um novo endereço para uma nova etapa.",
-    descricao: "Você busca um imóvel que acompanhe seu momento atual e seus planos futuros. O objetivo é encontrar equilíbrio entre necessidades, localização e orçamento.",
-    prioridades: "Necessidades indispensáveis, flexibilidade da planta, localização e custo total da mudança."
+    frase: "Um novo endereço para o momento que você está vivendo.",
+    descricao:
+      "Sua busca está relacionada a uma mudança importante " +
+      "na sua vida. O ideal é encontrar um imóvel que atenda " +
+      "às necessidades atuais sem ignorar seus planos futuros.",
+    prioridades:
+      "Necessidades indispensáveis, flexibilidade dos ambientes, " +
+      "localização e orçamento total da mudança.",
+    alerta:
+      "Evite escolher apenas pela emoção do momento. " +
+      "Pense também em como o imóvel poderá atender " +
+      "à sua rotina nos próximos anos."
   },
   {
     nome: "Conforto e Praticidade",
-    frase: "Mais qualidade de vida, menos tempo perdido.",
-    descricao: "Seu perfil valoriza conveniência e funcionalidade. Uma busca objetiva pode ajudar a identificar apartamentos mais adequados à sua rotina.",
-    prioridades: "Deslocamentos, serviços próximos, planta eficiente, manutenção e custos do condomínio."
+    frase: "Mais qualidade de vida, menos complicações.",
+    descricao:
+      "Você tende a valorizar uma rotina mais confortável " +
+      "e eficiente. Localização, conveniência e funcionalidade " +
+      "podem fazer tanta diferença quanto o tamanho do imóvel.",
+    prioridades:
+      "Deslocamentos, serviços próximos, planta funcional, " +
+      "manutenção e custos mensais.",
+    alerta:
+      "Uma boa localização deve ser avaliada em relação " +
+      "à sua rotina real, não apenas à popularidade do bairro."
   },
   {
     nome: "Decisão Patrimonial",
-    frase: "Um bom imóvel precisa fazer sentido nos números.",
-    descricao: "Seu perfil valoriza análise de preço, custos e segurança patrimonial. É importante comparar opções com critérios objetivos, sem depender de promessas de valorização.",
-    prioridades: "Preços comparáveis, localização, custos de aquisição, demanda, liquidez e riscos."
+    frase: "Escolher bem também é proteger seu patrimônio.",
+    descricao:
+      "Seu perfil indica atenção à qualidade da decisão " +
+      "financeira e patrimonial. Comparar imóveis semelhantes " +
+      "e entender custos e riscos é fundamental.",
+    prioridades:
+      "Preço em relação a imóveis comparáveis, localização, " +
+      "custos de aquisição, demanda e liquidez.",
+    alerta:
+      "Não baseie a compra em promessas de valorização. " +
+      "Analise os dados disponíveis, a documentação " +
+      "e a adequação do imóvel ao seu objetivo."
   }
 ];
 
-let etapa = 0;
 const respostas = Array(perguntas.length).fill(null);
 
+let etapa = 0;
+
 const elemento = id => document.getElementById(id);
+
+function respostaPreenchida(indice) {
+  const resposta = respostas[indice];
+
+  if (perguntas[indice].multipla) {
+    return Array.isArray(resposta) && resposta.length > 0;
+  }
+
+  return Number.isInteger(resposta);
+}
 
 function mostrarPergunta() {
   const atual = perguntas[etapa];
 
   elemento("contador").textContent =
-    "Pergunta " + (etapa + 1) + " de 8";
+    "Pergunta " + (etapa + 1) +
+    " de " + perguntas.length;
 
   elemento("barra").style.width =
     (etapa / perguntas.length * 100) + "%";
 
   elemento("pergunta").textContent = atual.texto;
-  elemento("opcoes").innerHTML = "";
+
+  elemento("instrucao").textContent =
+    atual.multipla
+      ? "Selecione até 3 características."
+      : "Escolha a alternativa que mais combina com você.";
+
+  const lista = elemento("opcoes");
+  lista.replaceChildren();
 
   atual.opcoes.forEach((opcao, indice) => {
     const botao = document.createElement("button");
+
     botao.type = "button";
     botao.className = "opcao";
 
-    if (respostas[etapa] === indice) {
+    if (atual.multipla) {
+      botao.classList.add("multipla");
+    }
+
+    const selecionada = atual.multipla
+      ? Array.isArray(respostas[etapa]) &&
+        respostas[etapa].includes(indice)
+      : respostas[etapa] === indice;
+
+    if (selecionada) {
       botao.classList.add("ativa");
     }
 
-    botao.textContent = opcao;
+    botao.setAttribute(
+      "aria-pressed",
+      selecionada ? "true" : "false"
+    );
 
-    botao.onclick = () => {
-      respostas[etapa] = indice;
+    const marcador = document.createElement("span");
+    marcador.className = "marcador";
+    marcador.textContent = selecionada ? "✓" : "";
+
+    const texto = document.createElement("span");
+    texto.className = "opcao-texto";
+
+    const titulo = document.createElement("span");
+    titulo.className = "opcao-titulo";
+    titulo.textContent = opcao.titulo;
+    texto.appendChild(titulo);
+
+    if (opcao.descricao) {
+      const descricao = document.createElement("span");
+      descricao.className = "opcao-desc";
+      descricao.textContent = opcao.descricao;
+      texto.appendChild(descricao);
+    }
+
+    botao.append(marcador, texto);
+
+    botao.addEventListener("click", () => {
+      if (atual.multipla) {
+        const anteriores =
+          Array.isArray(respostas[etapa])
+            ? [...respostas[etapa]]
+            : [];
+
+        const posicao = anteriores.indexOf(indice);
+
+        if (posicao >= 0) {
+          anteriores.splice(posicao, 1);
+        } else if (anteriores.length < atual.maximo) {
+          anteriores.push(indice);
+        }
+
+        respostas[etapa] = anteriores;
+      } else {
+        respostas[etapa] = indice;
+      }
+
       mostrarPergunta();
-    };
+    });
 
-    elemento("opcoes").appendChild(botao);
+    lista.appendChild(botao);
   });
 
   elemento("voltar").disabled = etapa === 0;
-  elemento("avancar").disabled = respostas[etapa] === null;
+
+  elemento("avancar").disabled =
+    !respostaPreenchida(etapa);
 
   elemento("avancar").textContent =
-    etapa === 7 ? "Ver meu resultado →" : "Continuar →";
+    etapa === perguntas.length - 1
+      ? "Ver meu resultado →"
+      : "Continuar →";
 }
+
+/*
+  Pontuação do perfil.
+
+  Índices:
+  0 = Upgrade Familiar
+  1 = Novo Capítulo
+  2 = Conforto e Praticidade
+  3 = Decisão Patrimonial
+
+  Motivação: peso 5
+  Prioridade: peso 3
+  Preocupação: peso 2
+
+  As outras respostas são usadas para
+  personalizar o diagnóstico e o contato,
+  sem distorcer o perfil principal.
+*/
 
 function descobrirPerfil() {
   const pontos = [0, 0, 0, 0];
 
-  pontos[respostas[0]] += 5;
+  const motivacao = respostas[0];
+  const prioridade = respostas[1];
+  const preocupacao = respostas[8];
 
-  if (respostas[1] === 0 || respostas[1] === 2) pontos[0] += 2;
-  if (respostas[1] === 1) pontos[2] += 2;
-  if (respostas[1] === 3) pontos[3] += 3;
+  const mapaMotivacao = [
+    0,  // Família cresceu
+    2,  // Conforto e localização
+    1,  // Mudança de vida
+    1,  // Primeiro imóvel
+    0,  // Troca de imóvel
+    3   // Investimento
+  ];
 
-  if (respostas[2] === 0) pontos[0] += 2;
-  if (respostas[2] === 1) pontos[2] += 2;
-  if (respostas[2] === 2) pontos[1] += 1;
-  if (respostas[2] === 3) pontos[3] += 3;
+  pontos[mapaMotivacao[motivacao]] += 5;
 
-  if (respostas[7] === 0 || respostas[7] === 3) pontos[3] += 2;
-  if (respostas[7] === 1) pontos[1] += 2;
-  if (respostas[7] === 2) pontos[2] += 2;
+  const mapaPrioridade = [
+    0,  // Espaço
+    2,  // Proximidade
+    0,  // Segurança e condomínio
+    2,  // Praticidade
+    3   // Equilíbrio financeiro
+  ];
 
-  return pontos.indexOf(Math.max(...pontos));
+  pontos[mapaPrioridade[prioridade]] += 3;
+
+  const mapaPreocupacao = [
+    3,  // Preço justo
+    1,  // Imóvel inadequado
+    2,  // Perder tempo
+    3,  // Custos e revenda
+    3   // Segurança da negociação
+  ];
+
+  pontos[mapaPreocupacao[preocupacao]] += 2;
+
+  const maiorPontuacao = Math.max(...pontos);
+
+  const empatados = pontos
+    .map((pontosDoPerfil, indice) => ({
+      pontos: pontosDoPerfil,
+      indice: indice
+    }))
+    .filter(item => item.pontos === maiorPontuacao);
+
+  /*
+    Em caso de empate, prevalece o perfil
+    associado à motivação principal.
+  */
+
+  if (empatados.length > 1) {
+    const principal = mapaMotivacao[motivacao];
+
+    if (empatados.some(item => item.indice === principal)) {
+      return principal;
+    }
+  }
+
+  return empatados[0].indice;
+}
+
+function textoResposta(indice) {
+  const pergunta = perguntas[indice];
+  const resposta = respostas[indice];
+
+  if (pergunta.multipla) {
+    return resposta
+      .map(posicao => pergunta.opcoes[posicao].titulo)
+      .join("; ");
+  }
+
+  return pergunta.opcoes[resposta].titulo;
+}
+
+function adicionarLinhaResumo(rotulo, valor) {
+  const linha = document.createElement("p");
+  const destaque = document.createElement("strong");
+
+  destaque.textContent = rotulo + ": ";
+
+  linha.appendChild(destaque);
+  linha.appendChild(document.createTextNode(valor));
+
+  elemento("resumo").appendChild(linha);
 }
 
 function mostrarResultado() {
@@ -441,19 +946,57 @@ function mostrarResultado() {
   elemento("frase").textContent = perfil.frase;
   elemento("descricao").textContent = perfil.descricao;
   elemento("prioridades").textContent = perfil.prioridades;
+  elemento("alerta").textContent = perfil.alerta;
+
+  elemento("resumo").replaceChildren();
+
+  adicionarLinhaResumo(
+    "Seu objetivo",
+    textoResposta(0)
+  );
+
+  adicionarLinhaResumo(
+    "Sua prioridade",
+    textoResposta(1)
+  );
+
+  adicionarLinhaResumo(
+    "Tipo de imóvel",
+    textoResposta(2)
+  );
+
+  adicionarLinhaResumo(
+    "Características",
+    textoResposta(3)
+  );
+
+  adicionarLinhaResumo(
+    "Região",
+    textoResposta(4)
+  );
+
+  adicionarLinhaResumo(
+    "Faixa de investimento",
+    textoResposta(5)
+  );
+
+  adicionarLinhaResumo(
+    "Momento da compra",
+    textoResposta(6)
+  );
 
   window.scrollTo(0, 0);
 }
 
-elemento("voltar").onclick = () => {
+elemento("voltar").addEventListener("click", () => {
   if (etapa > 0) {
     etapa--;
     mostrarPergunta();
   }
-};
+});
 
-elemento("avancar").onclick = () => {
-  if (respostas[etapa] === null) return;
+elemento("avancar").addEventListener("click", () => {
+  if (!respostaPreenchida(etapa)) return;
 
   if (etapa < perguntas.length - 1) {
     etapa++;
@@ -461,54 +1004,93 @@ elemento("avancar").onclick = () => {
   } else {
     mostrarResultado();
   }
-};
+});
 
-elemento("reiniciar").onclick = () => {
+elemento("reiniciar").addEventListener("click", () => {
   etapa = 0;
   respostas.fill(null);
+
+  elemento("formulario").reset();
 
   elemento("resultado").classList.add("oculto");
   elemento("quiz").classList.remove("oculto");
 
   mostrarPergunta();
   window.scrollTo(0, 0);
-};
+});
 
-elemento("formulario").onsubmit = evento => {
-  evento.preventDefault();
+/*
+  O site não envia mensagens automaticamente.
 
-  const nome = elemento("nome").value.trim();
-  const telefone = elemento("telefone").value.trim();
-  const email = elemento("email").value.trim();
+  A pessoa preenche o formulário,
+  autoriza o compartilhamento,
+  abre o WhatsApp e confirma o envio.
 
-  if (!nome || !elemento("consentimento").checked) return;
+  Nenhum dado é armazenado no GitHub.
+*/
 
-  const perfil = perfis[descobrirPerfil()];
+elemento("formulario").addEventListener(
+  "submit",
+  evento => {
+    evento.preventDefault();
 
-  let mensagem =
-    "Olá, Ticiana! Meu nome é " + nome + ".\n" +
-    "Fiz o diagnóstico imobiliário e gostaria " +
-    "de conversar sobre uma curadoria personalizada.\n\n" +
-    "Meu perfil: " + perfil.nome + "\n";
+    const nome = elemento("nome").value.trim();
+    const telefone =
+      elemento("telefone").value.trim();
+    const email =
+      elemento("email").value.trim();
 
-  perguntas.forEach((pergunta, indice) => {
+    const autorizou =
+      elemento("consentimento").checked;
+
+    if (!nome || !autorizou) {
+      alert(
+        "Informe seu nome e confirme a autorização."
+      );
+      return;
+    }
+
+    const perfil = perfis[descobrirPerfil()];
+
+    let mensagem =
+      "Olá, Ticiana! Meu nome é " + nome + ".\n\n" +
+      "Fiz o quiz 'Qual apartamento combina com " +
+      "sua próxima fase de vida?' e gostaria " +
+      "de conversar sobre uma curadoria " +
+      "imobiliária personalizada.\n\n" +
+      "MEU PERFIL: " + perfil.nome + "\n" +
+      perfil.frase + "\n\n" +
+      "MINHAS RESPOSTAS:\n";
+
+    perguntas.forEach((pergunta, indice) => {
+      mensagem +=
+        "\n" + (indice + 1) + ". " +
+        pergunta.texto + "\n" +
+        textoResposta(indice) + "\n";
+    });
+
+    if (telefone) {
+      mensagem +=
+        "\nMeu WhatsApp: " + telefone;
+    }
+
+    if (email) {
+      mensagem +=
+        "\nMeu e-mail: " + email;
+    }
+
     mensagem +=
-      "\n" + pergunta.texto + "\n" +
-      pergunta.opcoes[respostas[indice]] + "\n";
-  });
+      "\n\nAutorizo o compartilhamento " +
+      "dessas informações para atendimento " +
+      "relacionado à minha busca imobiliária.";
 
-  if (telefone) mensagem += "\nMeu WhatsApp: " + telefone;
-  if (email) mensagem += "\nMeu e-mail: " + email;
+    const link =
+      "https://wa.me/5585989164410?text=" +
+      encodeURIComponent(mensagem);
 
-  mensagem +=
-    "\n\nAutorizo contato relacionado à minha busca imobiliária.";
-
-  const link =
-    "https://wa.me/5585989164410?text=" +
-    encodeURIComponent(mensagem);
-
-  window.location.href = link;
-};
+    window.location.href = link;
+  }
+);
 
 mostrarPergunta();
 </script>
